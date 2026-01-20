@@ -1,0 +1,61 @@
+const namasiswa = [
+  { nama: "andi", nilai: 85 },
+  { nama: "budi", nilai: 72 },
+  { nama: "cici", nilai: 90 },
+  { nama: "doni", nilai: 60 },
+  { nama: "eka", nilai: 75 }
+];
+
+// Case-1 urutkan nilai terbesar ke terkecil
+namasiswa.sort(function(a, b) {
+  return b.nilai - a.nilai;
+});
+
+
+
+console.log("seleksi Dumbways");
+for (let i = 0; i < namasiswa.length; i++) {
+  console.log((i + 1) + ". " + namasiswa[i].nama + " - " + namasiswa[i].nilai);
+}
+
+
+// case-2 hitung nilai rata-rata
+let total = 0;
+for (let i = 0; i < namasiswa.length; i++) {
+  total += namasiswa[i].nilai;
+}
+let ratarata = total / namasiswa.length;
+console.log("\n nilai rata-rata:", ratarata.toFixed(1));
+
+
+
+//case-3 tampilkan siswa diatas rata-rata
+let diatasratarata = [];
+
+for (let i = 0; i < namasiswa.length; i++) {
+  if (namasiswa[i].nilai > ratarata) {
+    diatasratarata.push(namasiswa[i].nama);
+  }
+}
+console.log("siswa di atas rata-rata:", diatasratarata.join(", "));
+
+
+
+//case-4 tampilkan grade huruf
+
+console.log("\n tingkatan siswa:");
+for (let i = 0; i < namasiswa.length; i++) {
+  let tingkatannya = "";
+
+  if (namasiswa[i].nilai >= 85) {
+    tingkatannya = "A";
+  } else if (namasiswa[i].nilai >= 70) {
+    tingkatannya = "B";
+  } else if (namasiswa[i].nilai >= 60) {
+    tingkatannya = "C";
+  } else {
+    tingkatannya = "D";
+  }
+
+  console.log(namasiswa[i].nama + " - " + namasiswa[i].nilai + " (" + tingkatannya + ")");
+}
